@@ -5,10 +5,10 @@ var timeEl = document.getELementById("time");
 var secondsLeft = 60;
 
 // make an element that listens for a click on the start button
-var startClick = document.querySelector("#start-button");
+var startClick = document.getElementById("start-button");
 
 // we may need a container so we can change the overall content here queston to question....
-var container = document.querySelector(".container");
+// var container = document.querySelector(".container");
 
 function setTime() {
   var timeInt = setInterval(function () {
@@ -23,7 +23,7 @@ function setTime() {
       // TO DO call a function to make the page change here...
       //   function() {}
     }
-  }, 6000);
+  }, 1000);
 }
 
 // call the set time function so that the timer starts - but only on the start quiz button click!!!
