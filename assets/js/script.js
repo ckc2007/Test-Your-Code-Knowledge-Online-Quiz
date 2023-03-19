@@ -7,6 +7,8 @@ var secondsLeft = 60;
 // make an element that listens for a click on the start button
 var startClick = document.querySelector("#start-button");
 
+var message = document.querySelector("#message");
+
 // we may need a container so we can change the overall content here queston to question....
 // var container = document.querySelector(".container");
 
@@ -16,7 +18,43 @@ function setTime() {
     timeEl.textContent = "Time: " + secondsLeft;
     //TO DO make conditions here or a function that can be colled on condition if the answer is WRONG it must deduct x from time...
     // function(){}
-
+    // if (choice1Click) {
+    //   message.textContent = "Correct!";
+    //   quizEl.append(message);
+    //   question2();
+    // } else if (!choice1Click) {
+    //   message.textContent = "Wrong!";
+    //   quizEl.append(message);
+    //   secondsLeft -= 10;
+    //   question1();
+    // } else if (choice2Click) {
+    //   message.textContent = "Correct!";
+    //   quizEl.append(message);
+    //   question2();
+    // } else if (!choice2Click) {
+    //   message.textContent = "Wrong!";
+    //   quizEl.append(message);
+    //   secondsLeft -= 10;
+    //   question1();
+    // } else if (choice3Click) {
+    //   message.textContent = "Correct!";
+    //   quizEl.append(message);
+    //   question2();
+    // } else if (!choice3Click) {
+    //   message.textContent = "Wrong!";
+    //   quizEl.append(message);
+    //   secondsLeft -= 10;
+    //   question1();
+    // } else if (choice4Click) {
+    //   message.textContent = "Correct!";
+    //   quizEl.append(message);
+    //   question2();
+    // } else if (!choice4Click) {
+    //   message.textContent = "Wrong!";
+    //   quizEl.append(message);
+    //   secondsLeft -= 10;
+    //   question1();
+    // }
     if (secondsLeft === 0) {
       // stop the timer at this interval
       clearInterval(timeInt);
@@ -31,48 +69,11 @@ function setTime() {
 // call the set time function so that the timer starts - but only on the start quiz button click!!!
 startClick.addEventListener("click", function () {
   //TO DO: first change the section to the first question
+  question1();
   // function that changes the section conent to the first question here
   // then start the timer countdown...
   setTime();
 });
-
-// create the quiz questons that will display
-// i would make them part of a container and just change out the display of the container...
-// we need to use dom to update conent - create, append, set attributes etc
-var h1El = document.querySelector("#quiz-title");
-var instructionsEl = document.querySelector("#instructions");
-var quizEl = document.querySelector("#quiz");
-// make quiz el have poperty of text center on css?
-// make the buttons
-var questionEl = document.createElement("h1");
-questionEl.id = "question";
-var choice1El = document.createElement("button");
-choice1El.id = "choice-1";
-var choice2El = document.createElement("button");
-choice2El.id = "choice-2";
-var choice3El = document.createElement("button");
-choice3El.id = "choice-3";
-var choice4El = document.createElement("button");
-choice4El.id = "choice-4";
-
-function question1() {
-  // hid the quiz h1 title
-  h1El.display = "none";
-  // how do you hide an element again? none vs visible?
-  instructionsEl.display = "none";
-  //   hide the start button
-  startClick.display = "none";
-  //   read the content from the question objects:
-  questionEl.textContent = question1Obj["question"];
-  // give the choices their display values in the buttons:
-  choice1El.textConent = question1Obj[1];
-  choice2El.textContent = question2Obj[2];
-  choice3El.textContent = question3Obj[3];
-  choice4El.textContent = question4Obj[4];
-  //   display the quiz quesiton:
-  // create and display the four buttons you will use to answer
-  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
-}
 
 // should i make the question into an object?
 // edit these please - using the test quiz as a placeholder for now...set the key to be the inner content of the buttons, and the click value to return the boolean value:
@@ -115,3 +116,75 @@ var question5Obj = {
   3: ["3. alerts", false],
   4: ["4. numbers", false],
 };
+// create the quiz questons that will display
+// i would make them part of a container and just change out the display of the container...
+var quizEl = document.querySelector("#quiz");
+// we need to use dom to update conent - create, append, set attributes etc
+var h1El = document.querySelector("#quiz-title");
+var instructionsEl = document.querySelector("#instructions");
+
+// make quiz el have poperty of text center on css?
+// make the buttons
+var questionEl = document.createElement("h1");
+questionEl.id = "question";
+var choice1El = document.createElement("button");
+choice1El.id = "choice-1";
+// add event listener for the boolean of the click on each button:
+var choice1Click = document.querySelector("#choice-1");
+var choice2El = document.createElement("button");
+choice2El.id = "choice-2";
+var choice2Click = document.querySelector("#choice-2");
+var choice3El = document.createElement("button");
+choice3El.id = "choice-3";
+var choice3Click = document.querySelector("#choice-3");
+var choice4El = document.createElement("button");
+choice4El.id = "choice-4";
+var choice4Click = document.querySelector("#choice-4");
+
+function question1() {
+  // hid the quiz h1 title
+  h1El.display = "none";
+  // how do you hide an element again? none vs visible?
+  instructionsEl.display = "none";
+  //   hide the start button
+  startClick.display = "none";
+  //   read the content from the question objects:
+  questionEl.textContent = question1Obj["question"];
+  // give the choices their display values in the buttons:
+  choice1El.textConent = question1Obj[1];
+  choice2El.textContent = question1Obj[2];
+  choice3El.textContent = question1Obj[3];
+  choice4El.textContent = question1Obj[4];
+  //   display the quiz quesiton:
+  // create and display the four buttons you will use to answer
+  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
+}
+
+function question2() {
+  // hid the quiz h1 title
+  h1El.display = "none";
+  // how do you hide an element again? none vs visible?
+  instructionsEl.display = "none";
+  //   hide the start button
+  startClick.display = "none";
+  //   read the content from the question objects:
+  questionEl.textContent = question2Obj["question"];
+  // give the choices their display values in the buttons:
+  choice1El.textConent = question2Obj[1];
+  choice2El.textContent = question2Obj[2];
+  choice3El.textContent = question2Obj[3];
+  choice4El.textContent = question2Obj[4];
+  //   display the quiz quesiton:
+  // create and display the four buttons you will use to answer
+  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
+}
+
+
+// call the set time function so that the timer starts - but only on the start quiz button click!!!
+startClick.addEventListener("click", function () {
+    //TO DO: first change the section to the first question
+    question1();
+    // function that changes the section conent to the first question here
+    // then start the timer countdown...
+    setTime();
+  });
