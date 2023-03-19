@@ -214,7 +214,8 @@ for (let i = 0; i < questionArray.length; ) {
     if (choice1ElTruth) {
       message.textContent = "Correct!";
       quizEl.append(message);
-      return questionArray[i + 1];
+      i++;
+      return questionArray[i];
     } else {
       message.textContent = "Wrong!";
       quizEl.append(message);
@@ -227,7 +228,8 @@ for (let i = 0; i < questionArray.length; ) {
     if (choice2ElTruth) {
       message.textContent = "Correct!";
       quizEl.append(message);
-      return questionArray[i + 1];
+      i++;
+      return questionArray[i];
     } else {
       message.textContent = "Wrong!";
       quizEl.append(message);
@@ -240,7 +242,8 @@ for (let i = 0; i < questionArray.length; ) {
     if (choice3ElTruth) {
       message.textContent = "Correct!";
       quizEl.append(message);
-      return questionArray[i + 1];
+      i++;
+      return questionArray[i];
     } else {
       message.textContent = "Wrong!";
       quizEl.append(message);
@@ -253,7 +256,8 @@ for (let i = 0; i < questionArray.length; ) {
     if (choice4ElTruth) {
       message.textContent = "Correct!";
       quizEl.append(message);
-      return questionArray[i + 1];
+      i++;
+      return questionArray[i];
     } else {
       message.textContent = "Wrong!";
       quizEl.append(message);
