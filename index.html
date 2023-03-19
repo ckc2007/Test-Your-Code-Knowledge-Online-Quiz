@@ -13,41 +13,31 @@
       <!-- this nav link takes you to see the stored high scores page high_scores.html -->
       <!-- TO DO: make this display top left of nav bar -->
       <nav>
-        <a href="./high_scores.html">View High Scores</a>
+        <div style="text-align: left">
+          <a href="./high_scores.html">View High Scores</a>
+        </div>
       </nav>
       <!-- TO DO: make timer display the string "Time: _" where the time is a number of seconds left and draws its text from the set Interval function -->
       <!-- TO DO: make the timer display on the top right of the page -->
-      <p id="timer">Time:</p>
+      <p class="time" style="text-align: right"></p>
     </header>
 
     <!-- making the quiz section - this is the default start page -->
-    <section id="quiz">
+    <section id="quiz" style="text-align: center">
       <!-- set the title of the quiz -->
       <!-- TO DO: make the h1 have a wider margin -->
       <h1>JavaScript Coding Quiz Challenge</h1>
       <!-- create the quiz instructions -->
-      <p>Answer the following questions in the alotted time. Incorrect answers will deduct 10 seconds from your score. Good luck!</p>
+      <p>
+        Answer the following questions in the alotted time. Incorrect answers
+        will deduct 10 seconds from your score. Good luck!
+      </p>
       <!-- make the start quiz button here -->
       <!-- TO DO: make a style css that targets the btn class for ALL BUTTONS that appear - keep a consistent style -->
       <button id="start" class="btn">Start Quiz</button>
     </section>
 
-    <div class="card">
-      <div class="card-header">
-        <h2>Generate a Password</h2>
-      </div>
-      <div class="card-body">
-        <textarea
-          readonly
-          id="password"
-          placeholder="Your Secure Password"
-          aria-label="Generated Password"
-        ></textarea>
-      </div>
-      <div class="card-footer">
-        <button id="generate" class="btn">Generate Password</button>
-      </div>
-    </div>
+    <!-- we need to display the quiz items next...do this within the above section? -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
