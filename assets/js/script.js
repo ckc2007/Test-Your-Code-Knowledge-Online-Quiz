@@ -4,6 +4,10 @@ var timeEl = document.querySelector("#time");
 var secondsLeft = 60;
 // make an element that listens for a click on the start button
 var startClick = document.querySelector("#start-btn");
+// message if correct or not
+var messageCorrectEl = document.getElementById("message-1");
+var messageWrongEl = document.getElementById("message-2");
+var button1Truth, button2Truth, button3Truth, button4Truth;
 
 function setTime() {
   var timeInt = setInterval(function () {
@@ -41,23 +45,20 @@ function startQuiz() {
   // need to define the function that sets the next question
   setNextQuestion();
   //   now we need to listen for the click with a true value
-  button1El.addEventListener("click"),
-    function () {
-      var button1Truth = questions[i][1][1];
-    };
-  button2El.addEventListener("click"),
-    function () {
-      var button2Truth = questions[i][2][1];
-    };
-  button3El.addEventListener("click"),
-    function () {
-      var button3Truth = questions[i][3][1];
-    };
-  button4El.addEventListener("click"),
-    function () {
-      var button4Truth = questions[i][4][1];
-    };
+  button1El.addEventListener("click", function () {
+    button1Truth = questions[i][1][1];
+  });
+  button2El.addEventListener("click", function () {
+    button2Truth = questions[i][2][1];
+  });
+  button3El.addEventListener("click", function () {
+    button3Truth = questions[i][3][1];
+  });
+  button4El.addEventListener("click", function () {
+    button4Truth = questions[i][4][1];
+  });
   // if the correct click happens, then we call setNextQuestion
+
   // if the incorrect click happens, then we need to deduct 10 seconds from the timer
   // and we then need to display the message wrong and let the same question display until the right answer is clicked
 }
@@ -82,6 +83,7 @@ function setNextQuestion() {
   button4El.textContent = questions[i][4][0];
   // un hide the the answer buttons with content
   answerButtonsEl.classList.remove("hide");
+  i++;
 }
 
 let question1 = {
@@ -140,3 +142,40 @@ var questions = [question1, question2];
 // var container = document.querySelector(".container");
 
 // call the set time function so that the timer starts - but only on the start quiz button click!!!
+
+// if (button1Truth) {
+//     messageCorrectEl.classList.remove("hide");
+//     setNextQuestion();
+//     messageCorrectEl.classList.add("hide");
+//   } else if (!button1Truth) {
+//     messageWrongEl.classList.remove("hide");
+//     secondsLeft -= 10;
+//     messageWrongEl.classList.add("hide");
+//   }
+//   if (button2Truth) {
+//     messageCorrectEl.classList.remove("hide");
+//     setNextQuestion();
+//     messageCorrectEl.classList.add("hide");
+//   } else if (!button2Truth) {
+//     messageWrongEl.classList.remove("hide");
+//     secondsLeft -= 10;
+//     messageWrongEl.classList.add("hide");
+//   }
+//   if (button3Truth) {
+//     messageCorrectEl.classList.remove("hide");
+//     setNextQuestion();
+//     messageCorrectEl.classList.add("hide");
+//   } else if (!button3Truth) {
+//     messageWrongEl.classList.remove("hide");
+//     secondsLeft -= 10;
+//     messageWrongEl.classList.add("hide");
+//   }
+//   if (button4Truth) {
+//     messageCorrectEl.classList.remove("hide");
+//     setNextQuestion();
+//     messageCorrectEl.classList.add("hide");
+//   } else if (!button4Truth) {
+//     messageWrongEl.classList.remove("hide");
+//     secondsLeft -= 10;
+//     messageWrongEl.classList.add("hide");
+//   }
