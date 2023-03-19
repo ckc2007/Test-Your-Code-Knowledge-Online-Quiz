@@ -9,10 +9,7 @@
   </head>
 
   <body>
-    <!-- TO DO: give some style to the overall header element - make margins wider so the quiz displays further down -->
     <header>
-      <!-- this nav link takes you to see the stored high scores page high_scores.html -->
-      <!-- TO DO: make this display top left of nav bar -->
       <nav>
         <div style="text-align: left">
           <a href="./high_scores.html">View High Scores</a>
@@ -21,19 +18,23 @@
           <p id="time" style="text-align: right">Time: 60s</p>
         </div>
       </nav>
-      <!-- TO DO: make timer display the string "Time: _" where the time is a number of seconds left and draws its text from the set Interval function -->
-      <!-- TO DO: make the timer display on the top right of the page -->
     </header>
 
-    <!-- we need a container class here so we can change the content question to question as we progress thru the quiz -->
     <div class="container">
-        <div id="question-container" class="hide"></div>
-        <div class="controls">
-            <button id="start-btn">Start</button>
-        </div>
+      <div id="question-container" class="hide"></div>
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid">
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
+      </div>
+      <div class="controls">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        <button id="start-btn" class="start-btn btn hide">Next</button>
+      </div>
     </div>
 
-    <!-- we need to display the quiz items next...do this within the above section? -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
