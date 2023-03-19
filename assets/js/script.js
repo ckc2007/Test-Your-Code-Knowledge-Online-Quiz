@@ -35,21 +35,27 @@ function showQuestion(question) {
 function resetState() {}
 
 function selectAnswer(e) {
-    const selectedButton = e.target
-    const correct = selectedButton.dataset.correct
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
 }
 
-const questions = [
-  {
-    question: "Which of the following is not a primitive data type?",
-    answers: [
-      { text: "object", correct: true },
-      { text: "number", correct: false },
-      { text: "string", correct: false },
-      { text: "boolean", correct: false },
-    ],
-  },
-];
+// make quesitons
+
+let question1 = {
+  question: "Which is NOT a primitive data type?",
+  object: true,
+  number: false,
+  string: false,
+  boolean: false,
+};
+
+let question2 = {
+  question: "which is a global variable in JavaScript?",
+  var: true,
+  const: false,
+  let: false,
+  mkdir: false,
+};
 
 // this element selects the time id
 var timeEl = document.querySelector("#time");
