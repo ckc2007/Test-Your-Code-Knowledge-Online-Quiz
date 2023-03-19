@@ -4,6 +4,12 @@ var timeEl = document.getELementById("time");
 // this is our start time
 var secondsLeft = 60;
 
+// make an element that listens for a click on the start button
+var startClick = document.querySelector("#start-button");
+
+// we may need a container so we can change the overall content here queston to question....
+var container = document.querySelector(".container");
+
 function setTime() {
   var timeInt = setInterval(function () {
     secondsLeft--;
@@ -19,3 +25,11 @@ function setTime() {
     }
   }, 6000);
 }
+
+// call the set time function so that the timer starts - but only on the start quiz button click!!!
+startClick.addEventListener("click", function () {
+  //TO DO: first change the section to the first question
+  // function that changes the section conent to the first question here
+  // then start the timer countdown...
+  setTime();
+});

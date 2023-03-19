@@ -9,7 +9,7 @@
   </head>
 
   <body>
-      <!-- TO DO: give some style to the overall header element - make margins wider so the quiz displays further down -->
+    <!-- TO DO: give some style to the overall header element - make margins wider so the quiz displays further down -->
     <header>
       <!-- this nav link takes you to see the stored high scores page high_scores.html -->
       <!-- TO DO: make this display top left of nav bar -->
@@ -23,20 +23,23 @@
       <p id="time" style="text-align: right"></p>
     </header>
 
-    <!-- making the quiz section - this is the default start page -->
-    <section id="quiz" style="text-align: center">
-      <!-- set the title of the quiz -->
-      <!-- TO DO: make the h1 have a wider margin -->
-      <h1>JavaScript Coding Quiz Challenge</h1>
-      <!-- create the quiz instructions -->
-      <p>
-        Answer the following questions in the alotted time. Incorrect answers
-        will deduct 10 seconds from your score. Good luck!
-      </p>
-      <!-- make the start quiz button here -->
-      <!-- TO DO: make a style css that targets the btn class for ALL BUTTONS that appear - keep a consistent style -->
-      <button id="start" class="btn">Start Quiz</button>
-    </section>
+    <!-- we need a container class here so we can change the content question to question as we progress thru the quiz -->
+    <div class="container">
+      <!-- making the quiz section - this is the default start page -->
+      <section id="quiz" style="text-align: center">
+        <!-- set the title of the quiz -->
+        <!-- TO DO: make the h1 have a wider margin -->
+        <h1>JavaScript Coding Quiz Challenge</h1>
+        <!-- create the quiz instructions -->
+        <p>
+          Answer the following questions in the alotted time. Incorrect answers
+          will deduct 10 seconds from your score. Good luck!
+        </p>
+        <!-- make the start quiz button here -->
+        <!-- TO DO: make a style css that targets the btn class for ALL BUTTONS that appear - keep a consistent style -->
+        <button id="start-button" class="btn">Start Quiz</button>
+      </section>
+    </div>
 
     <!-- we need to display the quiz items next...do this within the above section? -->
     <script src="./assets/js/script.js"></script>
