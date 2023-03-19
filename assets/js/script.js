@@ -17,44 +17,6 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent = "Time: " + secondsLeft;
     //TO DO make conditions here or a function that can be colled on condition if the answer is WRONG it must deduct x from time...
-    // function(){}
-    // if (choice1Click) {
-    //   message.textContent = "Correct!";
-    //   quizEl.append(message);
-    //   question2();
-    // } else if (!choice1Click) {
-    //   message.textContent = "Wrong!";
-    //   quizEl.append(message);
-    //   secondsLeft -= 10;
-    //   question1();
-    // } else if (choice2Click) {
-    //   message.textContent = "Correct!";
-    //   quizEl.append(message);
-    //   question2();
-    // } else if (!choice2Click) {
-    //   message.textContent = "Wrong!";
-    //   quizEl.append(message);
-    //   secondsLeft -= 10;
-    //   question1();
-    // } else if (choice3Click) {
-    //   message.textContent = "Correct!";
-    //   quizEl.append(message);
-    //   question2();
-    // } else if (!choice3Click) {
-    //   message.textContent = "Wrong!";
-    //   quizEl.append(message);
-    //   secondsLeft -= 10;
-    //   question1();
-    // } else if (choice4Click) {
-    //   message.textContent = "Correct!";
-    //   quizEl.append(message);
-    //   question2();
-    // } else if (!choice4Click) {
-    //   message.textContent = "Wrong!";
-    //   quizEl.append(message);
-    //   secondsLeft -= 10;
-    //   question1();
-    // }
     if (secondsLeft === 0) {
       // stop the timer at this interval
       clearInterval(timeInt);
@@ -129,32 +91,31 @@ var questionEl = document.createElement("h1");
 questionEl.id = "question";
 var choice1El = document.createElement("button");
 choice1El.id = "choice-1";
-// add event listener for the boolean of the click on each button:
-var choice1Click = document.querySelector("#choice-1");
+var choice1ElTruth = question1Obj[1][1];
 var choice2El = document.createElement("button");
 choice2El.id = "choice-2";
-var choice2Click = document.querySelector("#choice-2");
+var choice2ElTruth = question1Obj[2][1];
 var choice3El = document.createElement("button");
 choice3El.id = "choice-3";
-var choice3Click = document.querySelector("#choice-3");
+var choice3ElTruth = question1Obj[3][1];
 var choice4El = document.createElement("button");
 choice4El.id = "choice-4";
-var choice4Click = document.querySelector("#choice-4");
+var choice4ElTruth = question1Obj[4][1];
 
 function question1() {
-  // hid the quiz h1 title
-  h1El.display = "none";
+  // hid the quiz h1 title <<<<< this is not working yet
+  h1El.display = "hidden";
   // how do you hide an element again? none vs visible?
-  instructionsEl.display = "none";
+  instructionsEl.display = "hidden";
   //   hide the start button
-  startClick.display = "none";
+  startClick.display = "hidden";
   //   read the content from the question objects:
   questionEl.textContent = question1Obj["question"];
   // give the choices their display values in the buttons:
-  choice1El.textConent = question1Obj[1];
-  choice2El.textContent = question1Obj[2];
-  choice3El.textContent = question1Obj[3];
-  choice4El.textContent = question1Obj[4];
+  choice1El.textContent = question1Obj[1][0];
+  choice2El.textContent = question1Obj[2][0];
+  choice3El.textContent = question1Obj[3][0];
+  choice4El.textContent = question1Obj[4][0];
   //   display the quiz quesiton:
   // create and display the four buttons you will use to answer
   quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
@@ -170,7 +131,7 @@ function question2() {
   //   read the content from the question objects:
   questionEl.textContent = question2Obj["question"];
   // give the choices their display values in the buttons:
-  choice1El.textConent = question2Obj[1];
+  choice1El.textContent = question2Obj[1];
   choice2El.textContent = question2Obj[2];
   choice3El.textContent = question2Obj[3];
   choice4El.textContent = question2Obj[4];
@@ -179,12 +140,56 @@ function question2() {
   quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
 }
 
-
 // call the set time function so that the timer starts - but only on the start quiz button click!!!
-startClick.addEventListener("click", function () {
-    //TO DO: first change the section to the first question
+// button 1
+choice1El.addEventListener("click", function () {
+  if (choice1ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    question2();
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
     question1();
-    // function that changes the section conent to the first question here
-    // then start the timer countdown...
-    setTime();
-  });
+  }
+});
+// button 2
+choice2El.addEventListener("click", function () {
+  if (choice2ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    question2();
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    question1();
+  }
+});
+// button 3
+choice3El.addEventListener("click", function () {
+  if (choice3ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    question2();
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    question1();
+  }
+});
+// button 4
+choice4El.addEventListener("click", function () {
+  if (choice4ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    question2();
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    question1();
+  }
+});
