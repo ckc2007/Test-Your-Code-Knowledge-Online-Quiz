@@ -1,45 +1,68 @@
 const startButton = document.getElementById("start-btn");
 const questionContainerEl = document.getElementById("question-container");
-const questionEl = document.getElementById("question");
-const answerButtonsEl = document.getElementById("answer-buttons");
+const introEl = document.getElementById("intro");
 
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
   console.log("started");
+  // start the timer
+  setTime();
+  // hide the intro
+  introEl.classList.add("hide");
   // makes the button dissapear by adding the .hide class
   startButton.classList.add("hide");
+  // make the question div show up:
   questionContainerEl.classList.remove("hide");
+  // need to define the function that sets the next question
   setNextQuestion();
 }
 
+// the question index
+let i = 0;
+
+const questionEl = document.getElementById("question");
+const answerButtonsEl = document.getElementById("answer-buttons");
+
 function setNextQuestion() {
-  resetState();
-  showQuestion(questions[i]);
+    // set the content to display what
+    questionEl.innerText = questions[i].question;
+    // make and display the answer buttons with content of the questions choices
+    answerButtonsEl.
 }
 
-function showQuestion(question) {
-  questionEl.innerText = question.question;
-  question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add("btn");
-    if (answer.correct) {
-      button.dataset.correct = answer.correct;
-    }
-    button.addEventListener("click", selectAnswer);
-    answerButtonsElement.appendChild(button);
-  });
-}
+// const questionContainerEl = document.getElementById("question-container");
+// const questionEl = document.getElementById("question");
+// const answerButtonsEl = document.getElementById("answer-buttons");
 
-function resetState() {}
+// function setNextQuestion() {
+//   resetState();
+//   showQuestion(questions[i]);
+// }
 
-function selectAnswer(e) {
-  const selectedButton = e.target;
-  const correct = selectedButton.dataset.correct;
-}
+// function showQuestion(question) {
+//   questionEl.innerText = question.question;
+//   question.answers.forEach((answer) => {
+//     const button = document.createElement("button");
+//     button.innerText = answer.text;
+//     button.classList.add("btn");
+//     if (answer.correct) {
+//       button.dataset.correct = answer.correct;
+//     }
+//     button.addEventListener("click", selectAnswer);
+//     answerButtonsElement.appendChild(button);
+//   });
+// }
+
+// function resetState() {}
+
+// function selectAnswer(e) {
+//   const selectedButton = e.target;
+//   const correct = selectedButton.dataset.correct;
+// }
 
 // make quesitons
+var questions = [question1, question2];
 
 let question1 = {
   question: "Which is NOT a primitive data type?",
