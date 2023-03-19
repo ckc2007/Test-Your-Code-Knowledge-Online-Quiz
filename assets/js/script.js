@@ -59,7 +59,47 @@ function question1() {
   //   hide the start button
   startClick.display = "none";
   // create and display the four buttons you will use to answer
-  quizEl.
+  quizEl.append(choice1El, choice2El, choice3El, choice4El);
 }
 
 // should i make the question into an object?
+// edit these please - using the test quiz as a placeholder for now...set the key to be the inner content of the buttons, and the click value to return the boolean value:
+var question1Obj = {
+  "1. strings": true,
+  "2. booleans": false,
+  "3. alerts": false,
+  "4. numbers": false,
+  question: "Commonly used data types DO NOT include:",
+};
+
+var question2Obj = {
+  "1. strings": false,
+  "2. booleans": true,
+  "3. alerts": false,
+  "4. numbers": false,
+  question: "objects types DO NOT include:",
+};
+
+var question3Obj = {
+  "1. strings": false,
+  "2. booleans": false,
+  "3. alerts": true,
+  "4. numbers": false,
+  question: "array types used data types DO NOT include:",
+};
+
+var question4Obj = {
+  "1. strings": false,
+  "2. booleans": false,
+  "3. alerts": false,
+  "4. numbers": true,
+  question: "string types used data types DO NOT include:",
+};
+
+var question5Obj = {
+  "1. strings": false,
+  "2. booleans": false,
+  "3. alerts": true,
+  "4. numbers": false,
+  question: "jQUery used data types DO NOT include:",
+};
