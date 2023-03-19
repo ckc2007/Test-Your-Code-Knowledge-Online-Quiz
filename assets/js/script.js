@@ -39,10 +39,13 @@ startClick.addEventListener("click", function () {
 // create the quiz questons that will display
 // i would make them part of a container and just change out the display of the container...
 // we need to use dom to update conent - create, append, set attributes etc
-var h1El = document.querySelector("h1");
+var h1El = document.querySelector("#quiz-title");
 var instructionsEl = document.querySelector("#instructions");
 var quizEl = document.querySelector("#quiz");
+// make quiz el have poperty of text center on css?
 // make the buttons
+var questionEl = document.createElement("h1");
+questionEl.id = "question";
 var choice1El = document.createElement("button");
 choice1El.id = "choice-1";
 var choice2El = document.createElement("button");
@@ -53,53 +56,62 @@ var choice4El = document.createElement("button");
 choice4El.id = "choice-4";
 
 function question1() {
-  h1El.textContent = "Question 1:.......";
+  // hid the quiz h1 title
+  h1El.display = "none";
   // how do you hide an element again? none vs visible?
   instructionsEl.display = "none";
   //   hide the start button
   startClick.display = "none";
+  //   read the content from the question objects:
+  questionEl.textContent = question1Obj["question"];
+  // give the choices their display values in the buttons:
+  choice1El.textConent = question1Obj[1];
+  choice2El.textContent = question2Obj[2];
+  choice3El.textContent = question3Obj[3];
+  choice4El.textContent = question4Obj[4];
+  //   display the quiz quesiton:
   // create and display the four buttons you will use to answer
-  quizEl.append(choice1El, choice2El, choice3El, choice4El);
+  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
 }
 
 // should i make the question into an object?
 // edit these please - using the test quiz as a placeholder for now...set the key to be the inner content of the buttons, and the click value to return the boolean value:
 var question1Obj = {
-  "1. strings": true,
-  "2. booleans": false,
-  "3. alerts": false,
-  "4. numbers": false,
   question: "Commonly used data types DO NOT include:",
+  1: ["1. strings", true],
+  2: ["2. booleans", false],
+  3: ["3. alerts", false],
+  4: ["4. numbers", false],
 };
 
 var question2Obj = {
-  "1. strings": false,
-  "2. booleans": true,
-  "3. alerts": false,
-  "4. numbers": false,
   question: "objects types DO NOT include:",
+  1: ["1. strings", true],
+  2: ["2. booleans", false],
+  3: ["3. alerts", false],
+  4: ["4. numbers", false],
 };
 
 var question3Obj = {
-  "1. strings": false,
-  "2. booleans": false,
-  "3. alerts": true,
-  "4. numbers": false,
   question: "array types used data types DO NOT include:",
+  1: ["1. strings", true],
+  2: ["2. booleans", false],
+  3: ["3. alerts", false],
+  4: ["4. numbers", false],
 };
 
 var question4Obj = {
-  "1. strings": false,
-  "2. booleans": false,
-  "3. alerts": false,
-  "4. numbers": true,
   question: "string types used data types DO NOT include:",
+  1: ["1. strings", true],
+  2: ["2. booleans", false],
+  3: ["3. alerts", false],
+  4: ["4. numbers", false],
 };
 
 var question5Obj = {
-  "1. strings": false,
-  "2. booleans": false,
-  "3. alerts": true,
-  "4. numbers": false,
   question: "jQUery used data types DO NOT include:",
+  1: ["1. strings", true],
+  2: ["2. booleans", false],
+  3: ["3. alerts", false],
+  4: ["4. numbers", false],
 };
