@@ -103,13 +103,13 @@ choice4El.id = "choice-4";
 var choice4ElTruth = question1Obj[4][1];
 
 // we should make the functions controlling the visual output for each question into an array so we can iterate through them
-var questionArray = [
-  question1(),
-  question2(),
-  question3(),
-  question4(),
-  question5(),
-];
+var questionFunctionObject = {
+  1: question1(),
+  2: question2(),
+  3: question3(),
+  4: question4(),
+  5: question5(),
+};
 // question 1
 function question1() {
   // hid the quiz h1 title <<<<< this is not working yet
@@ -209,60 +209,60 @@ function question5() {
 // call the set time function so that the timer starts - but only on the start quiz button click!!!
 // button 1
 // start on the first question function from function array - the place we are keeping all our questions
-for (let i = 0; i < questionArray.length; ) {
-  choice1El.addEventListener("click", function () {
-    if (choice1ElTruth) {
-      message.textContent = "Correct!";
-      quizEl.append(message);
-      i++;
-      return questionArray[i];
-    } else {
-      message.textContent = "Wrong!";
-      quizEl.append(message);
-      secondsLeft -= 10;
-      return questionArray[i];
-    }
-  });
-  // button 2
-  choice2El.addEventListener("click", function () {
-    if (choice2ElTruth) {
-      message.textContent = "Correct!";
-      quizEl.append(message);
-      i++;
-      return questionArray[i];
-    } else {
-      message.textContent = "Wrong!";
-      quizEl.append(message);
-      secondsLeft -= 10;
-      return questionArray[i];
-    }
-  });
-  // button 3
-  choice3El.addEventListener("click", function () {
-    if (choice3ElTruth) {
-      message.textContent = "Correct!";
-      quizEl.append(message);
-      i++;
-      return questionArray[i];
-    } else {
-      message.textContent = "Wrong!";
-      quizEl.append(message);
-      secondsLeft -= 10;
-      return questionArray[i];
-    }
-  });
-  // button 4
-  choice4El.addEventListener("click", function () {
-    if (choice4ElTruth) {
-      message.textContent = "Correct!";
-      quizEl.append(message);
-      i++;
-      return questionArray[i];
-    } else {
-      message.textContent = "Wrong!";
-      quizEl.append(message);
-      secondsLeft -= 10;
-      return questionArray[i];
-    }
-  });
-}
+var i = 1;
+
+choice1El.addEventListener("click", function () {
+  if (choice1ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    i++;
+    questionFunctionObject[i];
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    questionFunctionObject[i];
+  }
+});
+// button 2
+choice2El.addEventListener("click", function () {
+  if (choice2ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    i++;
+    questionFunctionObject[i];
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    questionFunctionObject[i];
+  }
+});
+// button 3
+choice3El.addEventListener("click", function () {
+  if (choice3ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    i++;
+    questionFunctionObject[i];
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    questionFunctionObject[i];
+  }
+});
+// button 4
+choice4El.addEventListener("click", function () {
+  if (choice4ElTruth) {
+    message.textContent = "Correct!";
+    quizEl.append(message);
+    i++;
+    questionFunctionObject[i];
+  } else {
+    message.textContent = "Wrong!";
+    quizEl.append(message);
+    secondsLeft -= 10;
+    questionFunctionObject[i];
+  }
+});
