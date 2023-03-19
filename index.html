@@ -27,21 +27,10 @@
 
     <!-- we need a container class here so we can change the content question to question as we progress thru the quiz -->
     <div class="container">
-      <!-- making the quiz section - this is the default start page -->
-      <section id="quiz" style="text-align: center">
-        <!-- set the title of the quiz -->
-        <!-- TO DO: make the h1 have a wider margin -->
-        <h1 id="quiz-title">JavaScript Coding Quiz Challenge</h1>
-        <!-- create the quiz instructions -->
-        <p id="instructions">
-          Answer the following questions in the alotted time. Incorrect answers
-          will deduct 10 seconds from your score. Good luck!
-        </p>
-        <!-- make the start quiz button here -->
-        <!-- TO DO: make a style css that targets the btn class for ALL BUTTONS that appear - keep a consistent style -->
-        <button id="start-button" class="btn">Start Quiz</button>
-        <div id="message"></div>
-      </section>
+        <div id="question-container" class="hide"></div>
+        <div class="controls">
+            <button id="start-btn">Start</button>
+        </div>
     </div>
 
     <!-- we need to display the quiz items next...do this within the above section? -->
