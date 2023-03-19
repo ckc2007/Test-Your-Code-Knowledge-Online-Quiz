@@ -102,13 +102,22 @@ var choice4El = document.createElement("button");
 choice4El.id = "choice-4";
 var choice4ElTruth = question1Obj[4][1];
 
+// we should make the functions controlling the visual output for each question into an array so we can iterate through them
+var questionArray = [
+  question1(),
+  question2(),
+  question3(),
+  question4(),
+  question5(),
+];
+// question 1
 function question1() {
   // hid the quiz h1 title <<<<< this is not working yet
-  h1El.display = "hidden";
+  //   h1El.display = "hidden";
   // how do you hide an element again? none vs visible?
-  instructionsEl.display = "hidden";
+  //   instructionsEl.display = "hidden";
   //   hide the start button
-  startClick.display = "hidden";
+  //   startClick.display = "hidden";
   //   read the content from the question objects:
   questionEl.textContent = question1Obj["question"];
   // give the choices their display values in the buttons:
@@ -120,21 +129,78 @@ function question1() {
   // create and display the four buttons you will use to answer
   quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
 }
-
+// question 2
 function question2() {
   // hid the quiz h1 title
-  h1El.display = "none";
+  //   h1El.display = "none";
   // how do you hide an element again? none vs visible?
-  instructionsEl.display = "none";
+  //   instructionsEl.display = "none";
   //   hide the start button
-  startClick.display = "none";
+  //   startClick.display = "none";
   //   read the content from the question objects:
   questionEl.textContent = question2Obj["question"];
   // give the choices their display values in the buttons:
-  choice1El.textContent = question2Obj[1];
-  choice2El.textContent = question2Obj[2];
-  choice3El.textContent = question2Obj[3];
-  choice4El.textContent = question2Obj[4];
+  choice1El.textContent = question2Obj[1][0];
+  choice2El.textContent = question2Obj[2][0];
+  choice3El.textContent = question2Obj[3][0];
+  choice4El.textContent = question2Obj[4][0];
+  //   display the quiz quesiton:
+  // create and display the four buttons you will use to answer
+  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
+}
+// question 3
+function question3() {
+  // hid the quiz h1 title
+  //   h1El.display = "none";
+  // how do you hide an element again? none vs visible?
+  //   instructionsEl.display = "none";
+  //   hide the start button
+  //   startClick.display = "none";
+  //   read the content from the question objects:
+  questionEl.textContent = question3Obj["question"];
+  // give the choices their display values in the buttons:
+  choice1El.textContent = question3Obj[1][0];
+  choice2El.textContent = question3Obj[2][0];
+  choice3El.textContent = question3Obj[3][0];
+  choice4El.textContent = question3Obj[4][0];
+  //   display the quiz quesiton:
+  // create and display the four buttons you will use to answer
+  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
+}
+// question 4
+function question4() {
+  // hid the quiz h1 title
+  //   h1El.display = "none";
+  // how do you hide an element again? none vs visible?
+  //   instructionsEl.display = "none";
+  //   hide the start button
+  //   startClick.display = "none";
+  //   read the content from the question objects:
+  questionEl.textContent = question4Obj["question"];
+  // give the choices their display values in the buttons:
+  choice1El.textContent = question4Obj[1][0];
+  choice2El.textContent = question4Obj[2][0];
+  choice3El.textContent = question4Obj[3][0];
+  choice4El.textContent = question4Obj[4][0];
+  //   display the quiz quesiton:
+  // create and display the four buttons you will use to answer
+  quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
+}
+// question 5
+function question5() {
+  // hid the quiz h1 title
+  //   h1El.display = "none";
+  // how do you hide an element again? none vs visible?
+  //   instructionsEl.display = "none";
+  //   hide the start button
+  //   startClick.display = "none";
+  //   read the content from the question objects:
+  questionEl.textContent = question5Obj["question"];
+  // give the choices their display values in the buttons:
+  choice1El.textContent = question5Obj[1][0];
+  choice2El.textContent = question5Obj[2][0];
+  choice3El.textContent = question5Obj[3][0];
+  choice4El.textContent = question5Obj[4][0];
   //   display the quiz quesiton:
   // create and display the four buttons you will use to answer
   quizEl.append(questionEl, choice1El, choice2El, choice3El, choice4El);
@@ -142,54 +208,57 @@ function question2() {
 
 // call the set time function so that the timer starts - but only on the start quiz button click!!!
 // button 1
-choice1El.addEventListener("click", function () {
-  if (choice1ElTruth) {
-    message.textContent = "Correct!";
-    quizEl.append(message);
-    question2();
-  } else {
-    message.textContent = "Wrong!";
-    quizEl.append(message);
-    secondsLeft -= 10;
-    question1();
-  }
-});
-// button 2
-choice2El.addEventListener("click", function () {
-  if (choice2ElTruth) {
-    message.textContent = "Correct!";
-    quizEl.append(message);
-    question2();
-  } else {
-    message.textContent = "Wrong!";
-    quizEl.append(message);
-    secondsLeft -= 10;
-    question1();
-  }
-});
-// button 3
-choice3El.addEventListener("click", function () {
-  if (choice3ElTruth) {
-    message.textContent = "Correct!";
-    quizEl.append(message);
-    question2();
-  } else {
-    message.textContent = "Wrong!";
-    quizEl.append(message);
-    secondsLeft -= 10;
-    question1();
-  }
-});
-// button 4
-choice4El.addEventListener("click", function () {
-  if (choice4ElTruth) {
-    message.textContent = "Correct!";
-    quizEl.append(message);
-    question2();
-  } else {
-    message.textContent = "Wrong!";
-    quizEl.append(message);
-    secondsLeft -= 10;
-    question1();
-  }
-});
+// start on the first question function from function array - the place we are keeping all our questions
+for (let i = 0; i < questionArray.length; ) {
+  choice1El.addEventListener("click", function () {
+    if (choice1ElTruth) {
+      message.textContent = "Correct!";
+      quizEl.append(message);
+      return questionArray[i + 1];
+    } else {
+      message.textContent = "Wrong!";
+      quizEl.append(message);
+      secondsLeft -= 10;
+      return questionArray[i];
+    }
+  });
+  // button 2
+  choice2El.addEventListener("click", function () {
+    if (choice2ElTruth) {
+      message.textContent = "Correct!";
+      quizEl.append(message);
+      return questionArray[i + 1];
+    } else {
+      message.textContent = "Wrong!";
+      quizEl.append(message);
+      secondsLeft -= 10;
+      return questionArray[i];
+    }
+  });
+  // button 3
+  choice3El.addEventListener("click", function () {
+    if (choice3ElTruth) {
+      message.textContent = "Correct!";
+      quizEl.append(message);
+      return questionArray[i + 1];
+    } else {
+      message.textContent = "Wrong!";
+      quizEl.append(message);
+      secondsLeft -= 10;
+      return questionArray[i];
+    }
+  });
+  // button 4
+  choice4El.addEventListener("click", function () {
+    if (choice4ElTruth) {
+      message.textContent = "Correct!";
+      quizEl.append(message);
+      return questionArray[i + 1];
+    } else {
+      message.textContent = "Wrong!";
+      quizEl.append(message);
+      secondsLeft -= 10;
+      return questionArray[i];
+    }
+  });
+}
