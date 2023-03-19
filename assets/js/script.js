@@ -49,26 +49,26 @@ var question1Obj = {
 
 var question2Obj = {
   question: "objects types DO NOT include:",
-  1: ["1. strings", true],
-  2: ["2. booleans", false],
+  1: ["1. strings", false],
+  2: ["2. booleans", true],
   3: ["3. alerts", false],
   4: ["4. numbers", false],
 };
 
 var question3Obj = {
   question: "array types used data types DO NOT include:",
-  1: ["1. strings", true],
+  1: ["1. strings", false],
   2: ["2. booleans", false],
-  3: ["3. alerts", false],
+  3: ["3. alerts", true],
   4: ["4. numbers", false],
 };
 
 var question4Obj = {
   question: "string types used data types DO NOT include:",
-  1: ["1. strings", true],
+  1: ["1. strings", false],
   2: ["2. booleans", false],
   3: ["3. alerts", false],
-  4: ["4. numbers", false],
+  4: ["4. numbers", true],
 };
 
 var question5Obj = {
