@@ -216,12 +216,12 @@ choice1El.addEventListener("click", function () {
     message.textContent = "Correct!";
     quizEl.append(message);
     i++;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   } else {
     message.textContent = "Wrong!";
     quizEl.append(message);
     secondsLeft -= 10;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   }
 });
 // button 2
@@ -230,12 +230,12 @@ choice2El.addEventListener("click", function () {
     message.textContent = "Correct!";
     quizEl.append(message);
     i++;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   } else {
     message.textContent = "Wrong!";
     quizEl.append(message);
     secondsLeft -= 10;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   }
 });
 // button 3
@@ -244,12 +244,12 @@ choice3El.addEventListener("click", function () {
     message.textContent = "Correct!";
     quizEl.append(message);
     i++;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   } else {
     message.textContent = "Wrong!";
     quizEl.append(message);
     secondsLeft -= 10;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   }
 });
 // button 4
@@ -258,11 +258,11 @@ choice4El.addEventListener("click", function () {
     message.textContent = "Correct!";
     quizEl.append(message);
     i++;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   } else {
     message.textContent = "Wrong!";
     quizEl.append(message);
     secondsLeft -= 10;
-    questionFunctionObject[i];
+    return questionFunctionObject[i];
   }
 });
