@@ -23,13 +23,38 @@ let i = 0;
 
 const questionEl = document.getElementById("question");
 const answerButtonsEl = document.getElementById("answer-buttons");
+const button1El = document.getElementById("btn-1");
+const button2El = document.getElementById("btn-2");
+const button3El = document.getElementById("btn-3");
+const button4El = document.getElementById("btn-4");
 
 function setNextQuestion() {
-    // set the content to display what
-    questionEl.innerText = questions[i].question;
-    // make and display the answer buttons with content of the questions choices
-    answerButtonsEl.
+  // set the content to display what
+  questionEl.innerText = questions[i].question;
+  // set the content of the answer buttons
+  button1El.textContent = questions[i];
+  // un hide the the answer buttons with content
+  answerButtonsEl.classList.remove("hide");
 }
+
+// make quesitons
+var questions = [question1, question2];
+
+let question1 = {
+  question: "Which is NOT a primitive data type?",
+  1: ["object", true],
+  2: ["number", false],
+  3: ["string", false],
+  4: ["boolean", false],
+};
+
+let question2 = {
+  question: "which is a global variable in JavaScript?",
+  1: ["var", true],
+  2: ["const", false],
+  3: ["let", false],
+  4: ["mkdir", false],
+};
 
 // const questionContainerEl = document.getElementById("question-container");
 // const questionEl = document.getElementById("question");
@@ -60,25 +85,6 @@ function setNextQuestion() {
 //   const selectedButton = e.target;
 //   const correct = selectedButton.dataset.correct;
 // }
-
-// make quesitons
-var questions = [question1, question2];
-
-let question1 = {
-  question: "Which is NOT a primitive data type?",
-  object: true,
-  number: false,
-  string: false,
-  boolean: false,
-};
-
-let question2 = {
-  question: "which is a global variable in JavaScript?",
-  var: true,
-  const: false,
-  let: false,
-  mkdir: false,
-};
 
 // this element selects the time id
 var timeEl = document.querySelector("#time");
