@@ -12,6 +12,19 @@ var messageWrongEl = document.getElementById("message-2");
 var question1Display = document.getElementById("question-1");
 var question2Display = document.getElementById("question-2");
 
+// the question index
+let i = 0;
+
+function setNextQuestion1() {
+  question1Display.classList.remove("hide");
+}
+
+function setNextQuestion2() {
+  messageWrongEl.classList.add("hide");
+  question1Display.classList.add("hide");
+  question2Display.classList.remove("hide");
+}
+
 // set the high score
 var highScore = 0;
 
@@ -37,6 +50,7 @@ const introEl = document.getElementById("intro");
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
+  // de bug console log to confirm start
   console.log("started");
   // start the timer
   setTime();
@@ -44,10 +58,7 @@ function startQuiz() {
   introEl.classList.add("hide");
   // makes the button dissapear by adding the .hide class
   startButton.classList.add("hide");
-  // make the question div show up:
-  //   questionContainerEl.classList.remove("hide");
-  //   questionContainerEl.innerText = "QUESTION " + (i + 1);
-  // need to define the function that sets the next question
+  // function sets the next question to display
   setNextQuestion1();
 
   //   now we need to listen for the click with a true value
@@ -94,23 +105,6 @@ function startQuiz() {
     messageWrongEl.classList.remove("hide");
     secondsLeft -= 10;
   });
-
-  //   button1El.addEventListener("click", function () {
-  //     button1Truth = questions[i][1][1];
-  //   });
-  //   button2El.addEventListener("click", function () {
-  //     button2Truth = questions[i][2][1];
-  //   });
-  //   button3El.addEventListener("click", function () {
-  //     button3Truth = questions[i][3][1];
-  //   });
-  //   button4El.addEventListener("click", function () {
-  //     button4Truth = questions[i][4][1];
-  //   });
-  // if the correct click happens, then we call setNextQuestion
-
-  // if the incorrect click happens, then we need to deduct 10 seconds from the timer
-  // and we then need to display the message wrong and let the same question display until the right answer is clicked
 }
 
 const questionEl = document.getElementById("question");
@@ -123,121 +117,3 @@ const button5El = document.getElementById("btn-5");
 const button6El = document.getElementById("btn-6");
 const button7El = document.getElementById("btn-7");
 const button8El = document.getElementById("btn-8");
-
-// the question index
-let i = 0;
-
-function setNextQuestion1() {
-  question1Display.classList.remove("hide");
-  // set the content to display what
-  //   questionEl.innerText = questions[i].question;
-  // set the content of the answer buttons
-  //   button1El.textContent = questions[i][1][0];
-  //   button2El.textContent = questions[i][2][0];
-  //   button3El.textContent = questions[i][3][0];
-  //   button4El.textContent = questions[i][4][0];
-  // un hide the the answer buttons with content
-  //   answerButtonsEl.classList.remove("hide");
-  //   i++;
-}
-
-function setNextQuestion2() {
-  //   messageCorrectEl.classList.add("hide");
-  messageWrongEl.classList.add("hide");
-  question1Display.classList.add("hide");
-  question2Display.classList.remove("hide");
-}
-
-let question1 = {
-  question: "Which is NOT a primitive data type?",
-  1: ["object", true],
-  2: ["number", false],
-  3: ["string", false],
-  4: ["boolean", false],
-};
-
-let question2 = {
-  question: "which is a global variable in JavaScript?",
-  1: ["var", true],
-  2: ["const", false],
-  3: ["let", false],
-  4: ["mkdir", false],
-};
-
-// make quesitons
-var questions = [question1, question2];
-
-// // this will be the message that displays correct or not correct
-// var message = document.querySelector("#message");
-
-// const questionContainerEl = document.getElementById("question-container");
-// const questionEl = document.getElementById("question");
-// const answerButtonsEl = document.getElementById("answer-buttons");
-
-// function setNextQuestion() {
-//   resetState();
-//   showQuestion(questions[i]);
-// }
-
-// function showQuestion(question) {
-//   questionEl.innerText = question.question;
-//   question.answers.forEach((answer) => {
-//     const button = document.createElement("button");
-//     button.innerText = answer.text;
-//     button.classList.add("btn");
-//     if (answer.correct) {
-//       button.dataset.correct = answer.correct;
-//     }
-//     button.addEventListener("click", selectAnswer);
-//     answerButtonsElement.appendChild(button);
-//   });
-// }
-
-// function resetState() {}
-
-// function selectAnswer(e) {
-//   const selectedButton = e.target;
-//   const correct = selectedButton.dataset.correct;
-// }
-
-// we may need a container so we can change the overall content here queston to question....
-// var container = document.querySelector(".container");
-
-// call the set time function so that the timer starts - but only on the start quiz button click!!!
-
-// if (button1Truth) {
-//     messageCorrectEl.classList.remove("hide");
-//     setNextQuestion();
-//     messageCorrectEl.classList.add("hide");
-//   } else if (!button1Truth) {
-//     messageWrongEl.classList.remove("hide");
-//     secondsLeft -= 10;
-//     messageWrongEl.classList.add("hide");
-//   }
-//   if (button2Truth) {
-//     messageCorrectEl.classList.remove("hide");
-//     setNextQuestion();
-//     messageCorrectEl.classList.add("hide");
-//   } else if (!button2Truth) {
-//     messageWrongEl.classList.remove("hide");
-//     secondsLeft -= 10;
-//     messageWrongEl.classList.add("hide");
-//   }
-//   if (button3Truth) {
-//     messageCorrectEl.classList.remove("hide");
-//     setNextQuestion();
-//     messageCorrectEl.classList.add("hide");
-//   } else if (!button3Truth) {
-//     messageWrongEl.classList.remove("hide");
-//     secondsLeft -= 10;
-//     messageWrongEl.classList.add("hide");
-//   }
-//   if (button4Truth) {
-//     messageCorrectEl.classList.remove("hide");
-//     setNextQuestion();
-//     messageCorrectEl.classList.add("hide");
-//   } else if (!button4Truth) {
-//     messageWrongEl.classList.remove("hide");
-//     secondsLeft -= 10;
-//     messageWrongEl.classList.add("hide");
-//   }
