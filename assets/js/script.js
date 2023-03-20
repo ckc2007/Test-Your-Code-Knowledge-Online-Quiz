@@ -5,7 +5,8 @@ var highScore = 0;
 var timeInt;
 var buttonContainerEl = document.querySelector("#button-container");
 var questionsAnswered = 0;
-var questions = [];
+var introEl = document.getElementById("intro");
+var quizEl = document.getElementById("quiz-container");
 
 function setTime() {
   // lollllllll
@@ -23,6 +24,9 @@ function setTime() {
 
 // event handler for start button click
 startButton.addEventListener("click", function () {
+  // hide the intro div
+  introEl.classList.add("hide");
+  quizEl.classList.remove("hide");
   setNextQuestion();
   setTime();
 });
@@ -52,6 +56,8 @@ function quizTimeOut() {
 
 function setNextQuestion() {}
 
+// lets make a randomizer!!!
+
 // create the questions
 const questions = [
   {
@@ -64,12 +70,12 @@ const questions = [
     ],
   },
   {
-    question: "Which variable is declared in the global scope?",
+    question: "Which is NOT a way to declare a variable?",
     answers: [
-      { text: "var", correct: true },
+      { text: "var", correct: false },
       { text: "let", correct: false },
       { text: "const", correct: false },
-      { text: "mkdir", correct: false },
+      { text: "mkdir", correct: true },
     ],
   },
   {
@@ -83,10 +89,12 @@ const questions = [
     ],
   },
   {
-    question: "What is 4 * 2?",
+    question: 'What is returned by console.log(22 + "2")?',
     answers: [
-      { text: "6", correct: false },
-      { text: "8", correct: true },
+      { text: "24", correct: false },
+      { text: "the string 222", correct: true },
+      { text: "the number 222", correct: false },
+      { text: '22 + "22"', correct: false },
     ],
   },
 ];
