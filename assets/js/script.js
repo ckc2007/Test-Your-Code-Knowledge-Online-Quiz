@@ -142,6 +142,7 @@ goBackButton.addEventListener("click", function () {
 
 clearScoreButton.addEventListener("click", function () {
   localStorage.clear();
+  scoreListEl.innerHTML = "";
 });
 // lets make a randomizer!!!
 
