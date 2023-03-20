@@ -14,6 +14,8 @@ var submitButtonEl = document.getElementById("submit");
 var leaderBoardEl = document.getElementById("leaderboard");
 var scoreListEl = document.getElementById("score-list");
 var leaderLinkEl = document.getElementById("leader-link");
+var goBackButton = document.getElementById("go-back");
+var clearScoreButton = document.getElementById("clear-scores");
 
 var players = [];
 
@@ -130,7 +132,14 @@ function renderListItems() {
   }
 }
 
+goBackButton.addEventListener("click", function () {
+  introEl.classList.remove("hide");
+  leaderBoardEl.classList.add("hide");
+});
 
+clearScoreButton.addEventListener("click", function(){
+  localStorage.clear();
+});
 // lets make a randomizer!!!
 
 // create the questions
