@@ -31,6 +31,16 @@
       <!-- used to place the button elements -->
       <div id="button-container"></div>
     </div>
+    <!-- score page here -->
+    <div id="score-page" class="hide">
+      <h2>You Finished The Quiz!</h2>
+      <h3>Your Final Score is: <span id="high-score"></span></h3>
+      <form id="player-form" method="POST">
+        <label for="player-text"></label>
+        <input placeholder="initials" id="player-text" />
+        <button id="submit">Submit</button>
+      </form>
+    </div>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

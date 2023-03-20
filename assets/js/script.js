@@ -8,6 +8,8 @@ var questionsAnswered = 0;
 var introEl = document.getElementById("intro");
 var quizEl = document.getElementById("quiz-container");
 var questionEl = document.getElementById("quiz-question");
+var scoreEl = document.getElementById("high-score");
+var scorePageEl = document.getElementById("score-page");
 
 function setTime() {
   // lollllllll
@@ -15,7 +17,6 @@ function setTime() {
   timeInt = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft;
-
     if (secondsLeft === 0) {
       // if time runs out - go to the score page
       quizTimeOut();
@@ -39,8 +40,11 @@ buttonContainerEl.addEventListener("click", function (event) {
   if (element.matches(".btn")) {
     questionsAnswered++;
     //set the value of the button to true or false at time of creating the button element
-    if (!element.value) {
+    // HUGE debug here - cant do !(string value for some reason)
+    if (element.dataset.correct === "false") {
       secondsLeft -= 10;
+      // this fixed the timer not showing the final time
+      timeEl.textContent = secondsLeft;
       // this needs to be defined
     }
     if (questionsAnswered === questions.length || secondsLeft <= 0) {
@@ -54,10 +58,20 @@ buttonContainerEl.addEventListener("click", function (event) {
 // this handles stopping the time at 0,answered all questions given, or - time negative, going to score page,
 function quizTimeOut() {
   clearInterval(timeInt);
+  highScore = secondsLeft;
+  scoreEl.innerText = highScore;
+  loadScorePage();
+}
+
+function loadScorePage() {
+  quizEl.classList.add("hide");
+  scorePageEl.classList.remove("hide");
 }
 
 // problem here debug
 function setNextQuestion(index) {
+  //  clears the previous buttons
+  buttonContainerEl.innerHTML = "";
   var question = questions[index];
   // add text to the h2 quiz element
   questionEl.innerText = question.question;
@@ -66,9 +80,7 @@ function setNextQuestion(index) {
     // may want to concat a number here for the button display
     button.innerText = answer.text;
     button.classList.add("btn");
-    if (answer.correct) {
-      button.dataset.correct = answer.correct;
-    }
+    button.dataset.correct = answer.correct;
     buttonContainerEl.appendChild(button);
   });
 }
