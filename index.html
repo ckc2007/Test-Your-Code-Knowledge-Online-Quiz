@@ -36,10 +36,15 @@
       <h2>You Finished The Quiz!</h2>
       <h3>Your Final Score is: <span id="high-score"></span></h3>
       <form id="player-form" method="POST">
-        <label for="player-text"></label>
+        <label for="player-text">Enter initials:</label>
         <input placeholder="initials" id="player-text" />
         <button id="submit">Submit</button>
       </form>
+    </div>
+    <!-- leader board here -->
+    <div id="leaderboard" class="hide">
+      <h2>Highscores</h2>
+      <ol id="score-list"></ol>
     </div>
     <script src="./assets/js/script.js"></script>
   </body>

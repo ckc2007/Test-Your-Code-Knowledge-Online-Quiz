@@ -10,6 +10,8 @@ var quizEl = document.getElementById("quiz-container");
 var questionEl = document.getElementById("quiz-question");
 var scoreEl = document.getElementById("high-score");
 var scorePageEl = document.getElementById("score-page");
+var submitButtonEl = document.getElementById("submit");
+var leaderBoardEl = document.getElementById("leaderboard");
 
 function setTime() {
   // lollllllll
@@ -29,7 +31,6 @@ startButton.addEventListener("click", function () {
   // hide the intro div
   introEl.classList.add("hide");
   quizEl.classList.remove("hide");
-  // problem here debug
   setNextQuestion(questionsAnswered);
   setTime();
 });
@@ -40,12 +41,11 @@ buttonContainerEl.addEventListener("click", function (event) {
   if (element.matches(".btn")) {
     questionsAnswered++;
     //set the value of the button to true or false at time of creating the button element
-    // HUGE debug here - cant do !(string value for some reason)
+    // HUGE debug here - can't do !(string value for some reason)
     if (element.dataset.correct === "false") {
       secondsLeft -= 10;
       // this fixed the timer not showing the final time
       timeEl.textContent = secondsLeft;
-      // this needs to be defined
     }
     if (questionsAnswered === questions.length || secondsLeft <= 0) {
       quizTimeOut();
@@ -68,7 +68,6 @@ function loadScorePage() {
   scorePageEl.classList.remove("hide");
 }
 
-// problem here debug
 function setNextQuestion(index) {
   //  clears the previous buttons
   buttonContainerEl.innerHTML = "";
@@ -85,11 +84,27 @@ function setNextQuestion(index) {
   });
 }
 
-// what happens upon the click on the button?
-// need to display a message : correct! or wrong!
-// need to go to the next question...
-// function clickAnswerBtn() {}
+// submit form handler
+submitButtonEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  var initials = document.getElementById("player-text").value.trim();
+  // made our player local storage object
+  // localStorage.setItem("player", initials);
+  // localStorage.setItme("score", highScore);
+  var playerObj = {
+    player: initials,
+    score: highScore,
+  };
+  localStorage.setItem("leaderBoard", JSON.stringify(playerObj));
+  showLeaderBoard();
+});
 
+function showLeaderBoard() {
+  scorePageEl.classList.add("hide");
+  leaderBoardEl.classList.remove("hide");
+  var lastPlayer = JSON.parse(localStorage.getItem("leaderBoard"));
+  console.log(lastPlayer);
+}
 // lets make a randomizer!!!
 
 // create the questions
