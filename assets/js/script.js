@@ -16,14 +16,18 @@ var scoreListEl = document.getElementById("score-list");
 var leaderLinkEl = document.getElementById("leader-link");
 var goBackButton = document.getElementById("go-back");
 var clearScoreButton = document.getElementById("clear-scores");
+var playerTextEL = document.getElementById("player-text");
 
 var players = [];
-
+if (localStorage.getItem("leaderboard") !== null) {
+  // debugger;
+  players = JSON.parse(localStorage.getItem("leaderboard"));
+}
 // not working debug
-// leaderLinkEl.addEventListener("Click", function () {
-//   introEl.classList.add("hide");
-//   leaderBoardEl.classList.remove("hide");
-// });
+leaderLinkEl.addEventListener("click", function () {
+  introEl.classList.add("hide");
+  leaderBoardEl.classList.remove("hide");
+});
 
 function setTime() {
   // lollllllll
@@ -110,14 +114,15 @@ submitButtonEl.addEventListener("click", function (event) {
   players.push(playerObj);
   // sorted high to low
   players.sort((a, b) => b.score - a.score);
-  localStorage.setItem("leaderBoard", JSON.stringify(players));
+  localStorage.setItem("leaderboard", JSON.stringify(players));
   showLeaderBoard();
+  playerTextEL.value = "";
 });
 
 function showLeaderBoard() {
   scorePageEl.classList.add("hide");
   leaderBoardEl.classList.remove("hide");
-  var displayPlayers = JSON.parse(localStorage.getItem("leaderBoard"));
+  var displayPlayers = JSON.parse(localStorage.getItem("leaderboard"));
   console.log(displayPlayers);
   renderListItems();
 }
@@ -141,7 +146,7 @@ goBackButton.addEventListener("click", function () {
 });
 
 clearScoreButton.addEventListener("click", function () {
-  localStorage.clear();
+  window.localStorage.clear();
   scoreListEl.innerHTML = "";
 });
 // lets make a randomizer!!!
