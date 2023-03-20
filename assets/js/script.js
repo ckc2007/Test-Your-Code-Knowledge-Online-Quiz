@@ -1,7 +1,7 @@
 // this element selects the time id
 var timeEl = document.querySelector("#time");
 // this is our start time
-var secondsLeft = 60;
+var secondsLeft = 100;
 // make an element that listens for a click on the start button
 var startClick = document.querySelector("#start-btn");
 // message if correct or not
@@ -11,6 +11,16 @@ var messageWrongEl = document.getElementById("message-2");
 // hard coding the question display because i just haven't been able to get the logic down yet for data attributes...
 var question1Display = document.getElementById("question-1");
 var question2Display = document.getElementById("question-2");
+
+const questionEl = document.getElementById("question");
+const button1El = document.getElementById("btn-1");
+const button2El = document.getElementById("btn-2");
+const button3El = document.getElementById("btn-3");
+const button4El = document.getElementById("btn-4");
+const button5El = document.getElementById("btn-5");
+const button6El = document.getElementById("btn-6");
+const button7El = document.getElementById("btn-7");
+const button8El = document.getElementById("btn-8");
 
 // the question index
 let i = 0;
@@ -89,6 +99,7 @@ function startQuiz() {
     highScore = secondsLeft;
     console.log(highScore);
     // at the end of the test, go to the scores page
+    // *****how do i redirect from here?? call a function?
   });
   button6El.addEventListener("click", function () {
     messageCorrectEl.classList.add("hide");
@@ -106,14 +117,3 @@ function startQuiz() {
     secondsLeft -= 10;
   });
 }
-
-const questionEl = document.getElementById("question");
-const answerButtonsEl = document.getElementById("answer-buttons");
-const button1El = document.getElementById("btn-1");
-const button2El = document.getElementById("btn-2");
-const button3El = document.getElementById("btn-3");
-const button4El = document.getElementById("btn-4");
-const button5El = document.getElementById("btn-5");
-const button6El = document.getElementById("btn-6");
-const button7El = document.getElementById("btn-7");
-const button8El = document.getElementById("btn-8");
