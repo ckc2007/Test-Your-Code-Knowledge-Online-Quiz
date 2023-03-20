@@ -20,8 +20,9 @@ var playerTextEL = document.getElementById("player-text");
 
 var players = [];
 if (localStorage.getItem("leaderboard") !== null) {
-  // debugger;
   players = JSON.parse(localStorage.getItem("leaderboard"));
+  scoreListEl.innerHTML = "";
+  renderListItems();
 }
 
 leaderLinkEl.addEventListener("click", function () {
@@ -106,6 +107,9 @@ function nextQuestion(index) {
 // submit form handler
 submitButtonEl.addEventListener("click", function (event) {
   event.preventDefault();
+  // sometimes does not clear the leaderboard
+  // playerTextEL.value = "";
+  // scoreListEl.innerHTML = "";
   var initials = document
     .getElementById("player-text")
     .value.trim()
@@ -139,7 +143,7 @@ function renderListItems() {
   for (var i = 0; i < players.length; i++) {
     var player = players[i];
     var liEl = document.createElement("li");
-    liEl.textContent = player.player + " Score: " + player.score;
+    liEl.textContent = player.player + "'s - score: " + player.score;
     scoreListEl.appendChild(liEl);
   }
 }
@@ -153,8 +157,10 @@ goBackButton.addEventListener("click", function () {
 });
 
 clearScoreButton.addEventListener("click", function () {
-  window.localStorage.clear();
+  localStorage.removeItem("leaderboard");
   scoreListEl.innerHTML = "";
+  // was missing this before - required to clear array
+  players = [];
 });
 // lets make a randomizer!!!
 
