@@ -1,9 +1,35 @@
 *,
 *::before,
 *::after {
-* {
   box-sizing: border-box;
   font-family: Arial;
+}
+
+#header {
+  margin-bottom: 20px;
+}
+
+body {
+  padding: 20px;
+}
+
+.intro {
+  padding: 20px;
+  text-align: center;
+}
+
+.quiz-container {
+  text-align: left;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 .hide {

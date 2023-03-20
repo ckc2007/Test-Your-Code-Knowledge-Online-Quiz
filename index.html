@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timed Coding Quiz: JavaScript!</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" /> -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
   <body>
-    <header id="header">
-      <a style="text-align: left" href="high_scores.html">View High Scores</a>
-      <p style="text-align: right" id="timer">Time: <span id="time">0</span></p>
+    <header id="header" class="flex-space-between">
+      <a href="high_scores.html">View High Scores</a>
+      <!-- i span a span? i can! -->
+      <span id="timer">Time: <span id="time">0</span></span>
     </header>
     <!-- introduction section (will hide when quiz starts) -->
-    <div class="intro">
+    <div id="intro" class="intro">
       <h1>Coding Quiz Challenge</h1>
       <p>
         Try to answer the following code-related questions within the time

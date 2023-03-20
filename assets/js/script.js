@@ -7,6 +7,7 @@ var buttonContainerEl = document.querySelector("#button-container");
 var questionsAnswered = 0;
 var introEl = document.getElementById("intro");
 var quizEl = document.getElementById("quiz-container");
+var questionEl = document.getElementById("quiz-question");
 
 function setTime() {
   // lollllllll
@@ -54,8 +55,30 @@ function quizTimeOut() {
   clearInterval(timeInt);
 }
 
-function setNextQuestion() {}
+function setNextQuestion() {
+  // reset state function to reset the quiz container
+  resetQuestionState();
+  // display the content of the question
+  displayQuestion();
+}
 
+function resetQuestionState() {}
+
+function displayQuestion(q) {
+  questionEl.innerText = q.question;
+  q.answers.forEach((ans) => {
+    var button = document.createElement("button");
+    button.innerText = ans.text;
+    button.classList.add("btn");
+    if (ans.correct) {
+      button.dataset.correct = ans.correct;
+    }
+    button.addEventListener("click", selectAns);
+    buttonContainerEl.appendChild(button);
+  });
+}
+
+function selectAns() {}
 // lets make a randomizer!!!
 
 // create the questions
