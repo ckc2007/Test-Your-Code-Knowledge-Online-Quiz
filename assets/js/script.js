@@ -135,9 +135,12 @@ function renderListItems() {
 goBackButton.addEventListener("click", function () {
   introEl.classList.remove("hide");
   leaderBoardEl.classList.add("hide");
+  highScore = 0;
+  questionsAnswered = 0;
+  secondsLeft = 101;
 });
 
-clearScoreButton.addEventListener("click", function(){
+clearScoreButton.addEventListener("click", function () {
   localStorage.clear();
 });
 // lets make a randomizer!!!
