@@ -12,6 +12,9 @@ var scoreEl = document.getElementById("high-score");
 var scorePageEl = document.getElementById("score-page");
 var submitButtonEl = document.getElementById("submit");
 var leaderBoardEl = document.getElementById("leaderboard");
+var scoreListEl = document.getElementById("score-list");
+
+var players = [];
 
 function setTime() {
   // lollllllll
@@ -95,15 +98,29 @@ submitButtonEl.addEventListener("click", function (event) {
     player: initials,
     score: highScore,
   };
-  localStorage.setItem("leaderBoard", JSON.stringify(playerObj));
+  players.push(playerObj);
+  // sorted high to low
+  players.sort((a, b) => b.score - a.score);
+  localStorage.setItem("leaderBoard", JSON.stringify(players));
   showLeaderBoard();
 });
 
 function showLeaderBoard() {
   scorePageEl.classList.add("hide");
   leaderBoardEl.classList.remove("hide");
-  var lastPlayer = JSON.parse(localStorage.getItem("leaderBoard"));
-  console.log(lastPlayer);
+  var displayPlayers = JSON.parse(localStorage.getItem("leaderBoard"));
+  console.log(displayPlayers);
+  renderListItems();
+}
+
+function renderListItems() {
+  scoreListEl.innerHTML = "";
+  for (var i = 0; i < players.length; i++) {
+    var player = players[i];
+    var liEl = document.createElement("li");
+    liEl.textContent = player.player + " Score: " + player.score;
+    scoreListEl.appendChild(liEl);
+  }
 }
 // lets make a randomizer!!!
 
