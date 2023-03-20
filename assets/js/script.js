@@ -28,7 +28,8 @@ startButton.addEventListener("click", function () {
   // hide the intro div
   introEl.classList.add("hide");
   quizEl.classList.remove("hide");
-  setNextQuestion();
+  // problem here debug
+  setNextQuestion(questionsAnswered);
   setTime();
 });
 
@@ -45,7 +46,7 @@ buttonContainerEl.addEventListener("click", function (event) {
     if (questionsAnswered === questions.length || secondsLeft <= 0) {
       quizTimeOut();
     } else {
-      setNextQuestion();
+      setNextQuestion(questionsAnswered);
     }
   }
 });
@@ -55,20 +56,19 @@ function quizTimeOut() {
   clearInterval(timeInt);
 }
 
-var index = 0;
-var question = questions[index];
-
-function setNextQuestion(question) {
+// problem here debug
+function setNextQuestion(index) {
+  var question = questions[index];
   // add text to the h2 quiz element
   questionEl.innerText = question.question;
   question.answers.forEach((answer) => {
     var button = document.createElement("button");
+    // may want to concat a number here for the button display
     button.innerText = answer.text;
     button.classList.add("btn");
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
-    // button.addEventListener("click", clickAnswerBtn);
     buttonContainerEl.appendChild(button);
   });
 }
@@ -76,7 +76,7 @@ function setNextQuestion(question) {
 // what happens upon the click on the button?
 // need to display a message : correct! or wrong!
 // need to go to the next question...
-function clickAnswerBtn() {}
+// function clickAnswerBtn() {}
 
 // lets make a randomizer!!!
 
