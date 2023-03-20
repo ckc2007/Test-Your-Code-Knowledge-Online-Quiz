@@ -13,8 +13,15 @@ var scorePageEl = document.getElementById("score-page");
 var submitButtonEl = document.getElementById("submit");
 var leaderBoardEl = document.getElementById("leaderboard");
 var scoreListEl = document.getElementById("score-list");
+var leaderLinkEl = document.getElementById("leader-link");
 
 var players = [];
+
+// not working debug
+// leaderLinkEl.addEventListener("Click", function () {
+//   introEl.classList.add("hide");
+//   leaderBoardEl.classList.remove("hide");
+// });
 
 function setTime() {
   // lollllllll
@@ -122,6 +129,8 @@ function renderListItems() {
     scoreListEl.appendChild(liEl);
   }
 }
+
+
 // lets make a randomizer!!!
 
 // create the questions

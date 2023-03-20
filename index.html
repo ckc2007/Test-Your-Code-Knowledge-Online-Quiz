@@ -10,7 +10,7 @@
   </head>
   <body>
     <header id="header" class="flex-space-between">
-      <a href="high_scores.html">View High Scores</a>
+      <a id="leader-link" href="#leaderboard">View High Scores</a>
       <!-- i span a span? i can! -->
       <span id="timer">Time: <span id="time">0</span></span>
     </header>
@@ -45,6 +45,10 @@
     <div id="leaderboard" class="hide">
       <h2>Highscores</h2>
       <ol id="score-list"></ol>
+      <div id="leader-buttons-container">
+        <button id="go-back" class="btn">Go Back</button>
+        <button id="clear-scores" class="btn">Clear Highscores</button>
+      </div>
     </div>
     <script src="./assets/js/script.js"></script>
   </body>
