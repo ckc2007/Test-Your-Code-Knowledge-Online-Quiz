@@ -35,7 +35,7 @@ startButton.addEventListener("click", function () {
 // event handler for answer button clicks
 buttonContainerEl.addEventListener("click", function (event) {
   var element = event.target;
-  if (element.matches("button")) {
+  if (element.matches(".btn")) {
     questionsAnswered++;
     //set the value of the button to true or false at time of creating the button element
     if (!element.value) {
@@ -55,30 +55,29 @@ function quizTimeOut() {
   clearInterval(timeInt);
 }
 
-function setNextQuestion() {
-  // reset state function to reset the quiz container
-  resetQuestionState();
-  // display the content of the question
-  displayQuestion();
-}
+var index = 0;
+var question = questions[index];
 
-function resetQuestionState() {}
-
-function displayQuestion(q) {
-  questionEl.innerText = q.question;
-  q.answers.forEach((ans) => {
+function setNextQuestion(question) {
+  // add text to the h2 quiz element
+  questionEl.innerText = question.question;
+  question.answers.forEach((answer) => {
     var button = document.createElement("button");
-    button.innerText = ans.text;
+    button.innerText = answer.text;
     button.classList.add("btn");
-    if (ans.correct) {
-      button.dataset.correct = ans.correct;
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
     }
-    button.addEventListener("click", selectAns);
+    // button.addEventListener("click", clickAnswerBtn);
     buttonContainerEl.appendChild(button);
   });
 }
 
-function selectAns() {}
+// what happens upon the click on the button?
+// need to display a message : correct! or wrong!
+// need to go to the next question...
+function clickAnswerBtn() {}
+
 // lets make a randomizer!!!
 
 // create the questions
