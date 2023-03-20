@@ -13,3 +13,7 @@ function setTime() {
     }
   }, 1000);
 }
+
+startButton.addEventListener("click", function () {
+  setTime();
+});
