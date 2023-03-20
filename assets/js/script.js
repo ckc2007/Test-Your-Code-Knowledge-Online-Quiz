@@ -30,6 +30,7 @@ leaderLinkEl.addEventListener("click", function () {
   leaderBoardEl.classList.remove("hide");
 });
 
+// initiates the clock countdown
 function setTime() {
   // lollllllll
   secondsLeft = 101;
@@ -47,6 +48,7 @@ function setTime() {
 startButton.addEventListener("click", function () {
   // hide the intro div
   introEl.classList.add("hide");
+  // show the quiz section
   quizEl.classList.remove("hide");
   nextQuestion(questionsAnswered);
   setTime();
@@ -58,7 +60,7 @@ buttonContainerEl.addEventListener("click", function (event) {
   if (element.matches(".btn")) {
     questionsAnswered++;
     //set the value of the button to true or false at time of creating the button element
-    // HUGE debug here - can't do !(string value for some reason)
+    // HUGE debug here - can't do >> !(string value for some reason)
     if (element.dataset.correct === "false") {
       secondsLeft -= 10;
       // this fixed the timer not showing the final time
@@ -72,7 +74,7 @@ buttonContainerEl.addEventListener("click", function (event) {
   }
 });
 
-// this handles stopping the time at 0,answered all questions given, or - time negative, going to score page,
+// this handles stopping the time at 0 ,answered all questions given, or - time negative, going to score page:
 function quizTimeOut() {
   clearInterval(timeInt);
   highScore = secondsLeft;
@@ -107,17 +109,12 @@ function nextQuestion(index) {
 // submit form handler
 submitButtonEl.addEventListener("click", function (event) {
   event.preventDefault();
-  // sometimes does not clear the leaderboard
-  // playerTextEL.value = "";
-  // scoreListEl.innerHTML = "";
   var initials = document
     .getElementById("player-text")
     .value.trim()
     .slice(0, 3)
     .toUpperCase();
   // made our player local storage object
-  // localStorage.setItem("player", initials);
-  // localStorage.setItme("score", highScore);
   var playerObj = {
     player: initials,
     score: highScore,
@@ -130,6 +127,7 @@ submitButtonEl.addEventListener("click", function (event) {
   playerTextEL.value = "";
 });
 
+// brings up the leaderboard
 function showLeaderBoard() {
   scorePageEl.classList.add("hide");
   leaderBoardEl.classList.remove("hide");
@@ -138,6 +136,7 @@ function showLeaderBoard() {
   renderListItems();
 }
 
+// adds content to the leaderboard
 function renderListItems() {
   scoreListEl.innerHTML = "";
   for (var i = 0; i < players.length; i++) {
@@ -147,7 +146,7 @@ function renderListItems() {
     scoreListEl.appendChild(liEl);
   }
 }
-
+// takes you back to the start of the game!
 goBackButton.addEventListener("click", function () {
   introEl.classList.remove("hide");
   leaderBoardEl.classList.add("hide");
@@ -155,16 +154,16 @@ goBackButton.addEventListener("click", function () {
   questionsAnswered = 0;
   secondsLeft = 101;
 });
-
+// resets the leaderboard rankings
 clearScoreButton.addEventListener("click", function () {
   localStorage.removeItem("leaderboard");
   scoreListEl.innerHTML = "";
-  // was missing this before - required to clear array
+  // was missing this before >> required to clear array
   players = [];
 });
-// lets make a randomizer!!!
+// lets make a randomizer so the questions don't appear in the same order each time!!!
 
-// create the questions:
+// create the questions - and eventually add more questions!:
 const questions = [
   {
     question: "Which is NOT a primitive data type?",
