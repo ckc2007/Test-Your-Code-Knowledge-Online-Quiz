@@ -1,6 +1,4 @@
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   font-family: Arial;
 }
@@ -33,7 +31,7 @@ p {
   padding: 0;
   margin: 0;
   /* display: flex; */
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   background-color: aqua;
   padding: 10px;

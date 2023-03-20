@@ -7,28 +7,33 @@ var startClick = document.querySelector("#start-btn");
 // message if correct or not
 var messageCorrectEl = document.getElementById("message-1");
 var messageWrongEl = document.getElementById("message-2");
-var button1Truth, button2Truth, button3Truth, button4Truth;
 
+// hard coding the question display because i just haven't been able to get the logic down yet for data attributes...
+var question1Display = document.getElementById("question-1");
+var question2Display = document.getElementById("question-2");
+
+// set the high score
+var highScore = 0;
+
+// runs the timer display
 function setTime() {
   var timeInt = setInterval(function () {
     secondsLeft--;
-    timeEl.textContent = "Time: " + secondsLeft;
-    //TO DO make conditions here or a function that can be colled on condition if the answer is WRONG it must deduct x from time...
+    timeEl.textContent = "Time: " + secondsLeft + "s";
     if (secondsLeft === 0) {
-      // stop the timer at this interval
       clearInterval(timeInt);
-      //   reset time to 60s
-      // secondsLeft = 60
-      // TO DO call a function to make the page change here...
-      //   function() {}
     }
   }, 1000);
 }
 
+// defines the start button
 const startButton = document.getElementById("start-btn");
+// here in case I need it
 const questionContainerEl = document.getElementById("question-container");
+// targets the intro message displayed on load
 const introEl = document.getElementById("intro");
 
+// add event listener to click event on start button - starts the game
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
@@ -40,23 +45,68 @@ function startQuiz() {
   // makes the button dissapear by adding the .hide class
   startButton.classList.add("hide");
   // make the question div show up:
-  questionContainerEl.classList.remove("hide");
-  questionContainerEl.innerText = "QUESTION " + (i + 1);
+  //   questionContainerEl.classList.remove("hide");
+  //   questionContainerEl.innerText = "QUESTION " + (i + 1);
   // need to define the function that sets the next question
-  setNextQuestion();
+  setNextQuestion1();
+
   //   now we need to listen for the click with a true value
   button1El.addEventListener("click", function () {
-    button1Truth = questions[i][1][1];
+    messageCorrectEl.classList.remove("hide");
+    setNextQuestion2();
   });
+
   button2El.addEventListener("click", function () {
-    button2Truth = questions[i][2][1];
+    messageCorrectEl.classList.add("hide");
+    messageWrongEl.classList.remove("hide");
+    secondsLeft -= 10;
   });
   button3El.addEventListener("click", function () {
-    button3Truth = questions[i][3][1];
+    messageCorrectEl.classList.add("hide");
+    messageWrongEl.classList.remove("hide");
+    secondsLeft -= 10;
   });
   button4El.addEventListener("click", function () {
-    button4Truth = questions[i][4][1];
+    messageCorrectEl.classList.add("hide");
+    messageWrongEl.classList.remove("hide");
+    secondsLeft -= 10;
   });
+  button5El.addEventListener("click", function () {
+    messageCorrectEl.classList.remove("hide");
+    messageWrongEl.classList.add("hide");
+    // save the time at time of win to high score
+    highScore = secondsLeft;
+    console.log(highScore);
+    // at the end of the test, go to the scores page
+  });
+  button6El.addEventListener("click", function () {
+    messageCorrectEl.classList.add("hide");
+    messageWrongEl.classList.remove("hide");
+    secondsLeft -= 10;
+  });
+  button7El.addEventListener("click", function () {
+    messageCorrectEl.classList.add("hide");
+    messageWrongEl.classList.remove("hide");
+    secondsLeft -= 10;
+  });
+  button8El.addEventListener("click", function () {
+    messageCorrectEl.classList.add("hide");
+    messageWrongEl.classList.remove("hide");
+    secondsLeft -= 10;
+  });
+
+  //   button1El.addEventListener("click", function () {
+  //     button1Truth = questions[i][1][1];
+  //   });
+  //   button2El.addEventListener("click", function () {
+  //     button2Truth = questions[i][2][1];
+  //   });
+  //   button3El.addEventListener("click", function () {
+  //     button3Truth = questions[i][3][1];
+  //   });
+  //   button4El.addEventListener("click", function () {
+  //     button4Truth = questions[i][4][1];
+  //   });
   // if the correct click happens, then we call setNextQuestion
 
   // if the incorrect click happens, then we need to deduct 10 seconds from the timer
@@ -69,21 +119,33 @@ const button1El = document.getElementById("btn-1");
 const button2El = document.getElementById("btn-2");
 const button3El = document.getElementById("btn-3");
 const button4El = document.getElementById("btn-4");
+const button5El = document.getElementById("btn-5");
+const button6El = document.getElementById("btn-6");
+const button7El = document.getElementById("btn-7");
+const button8El = document.getElementById("btn-8");
 
 // the question index
 let i = 0;
 
-function setNextQuestion() {
+function setNextQuestion1() {
+  question1Display.classList.remove("hide");
   // set the content to display what
-  questionEl.innerText = questions[i].question;
+  //   questionEl.innerText = questions[i].question;
   // set the content of the answer buttons
-  button1El.textContent = questions[i][1][0];
-  button2El.textContent = questions[i][2][0];
-  button3El.textContent = questions[i][3][0];
-  button4El.textContent = questions[i][4][0];
+  //   button1El.textContent = questions[i][1][0];
+  //   button2El.textContent = questions[i][2][0];
+  //   button3El.textContent = questions[i][3][0];
+  //   button4El.textContent = questions[i][4][0];
   // un hide the the answer buttons with content
-  answerButtonsEl.classList.remove("hide");
-  i++;
+  //   answerButtonsEl.classList.remove("hide");
+  //   i++;
+}
+
+function setNextQuestion2() {
+  //   messageCorrectEl.classList.add("hide");
+  messageWrongEl.classList.add("hide");
+  question1Display.classList.add("hide");
+  question2Display.classList.remove("hide");
 }
 
 let question1 = {
