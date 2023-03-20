@@ -23,7 +23,7 @@ if (localStorage.getItem("leaderboard") !== null) {
   // debugger;
   players = JSON.parse(localStorage.getItem("leaderboard"));
 }
-// not working debug
+
 leaderLinkEl.addEventListener("click", function () {
   introEl.classList.add("hide");
   leaderBoardEl.classList.remove("hide");
@@ -47,7 +47,7 @@ startButton.addEventListener("click", function () {
   // hide the intro div
   introEl.classList.add("hide");
   quizEl.classList.remove("hide");
-  setNextQuestion(questionsAnswered);
+  nextQuestion(questionsAnswered);
   setTime();
 });
 
@@ -66,7 +66,7 @@ buttonContainerEl.addEventListener("click", function (event) {
     if (questionsAnswered === questions.length || secondsLeft <= 0) {
       quizTimeOut();
     } else {
-      setNextQuestion(questionsAnswered);
+      nextQuestion(questionsAnswered);
     }
   }
 });
@@ -84,17 +84,20 @@ function loadScorePage() {
   scorePageEl.classList.remove("hide");
 }
 
-function setNextQuestion(index) {
+function nextQuestion(index) {
   //  clears the previous buttons
   buttonContainerEl.innerHTML = "";
+  // grab a question from our questions array
   var question = questions[index];
   // add text to the h2 quiz element
   questionEl.innerText = question.question;
-  question.answers.forEach((answer) => {
+  // create buttons and add the answers to the button display
+  question.answers.forEach((answer, i) => {
     var button = document.createElement("button");
     // may want to concat a number here for the button display
-    button.innerText = answer.text;
+    button.innerText = (i + 1).toString() + ". " + answer.text;
     button.classList.add("btn");
+    // add the truth value of the answer to the button dataset
     button.dataset.correct = answer.correct;
     buttonContainerEl.appendChild(button);
   });
@@ -103,7 +106,11 @@ function setNextQuestion(index) {
 // submit form handler
 submitButtonEl.addEventListener("click", function (event) {
   event.preventDefault();
-  var initials = document.getElementById("player-text").value.trim();
+  var initials = document
+    .getElementById("player-text")
+    .value.trim()
+    .slice(0, 3)
+    .toUpperCase();
   // made our player local storage object
   // localStorage.setItem("player", initials);
   // localStorage.setItme("score", highScore);
@@ -151,7 +158,7 @@ clearScoreButton.addEventListener("click", function () {
 });
 // lets make a randomizer!!!
 
-// create the questions
+// create the questions:
 const questions = [
   {
     question: "Which is NOT a primitive data type?",
