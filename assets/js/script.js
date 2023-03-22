@@ -153,6 +153,7 @@ goBackButton.addEventListener("click", function () {
   highScore = 0;
   questionsAnswered = 0;
   secondsLeft = 101;
+  timeEl.innerText = 0;
 });
 // resets the leaderboard rankings
 clearScoreButton.addEventListener("click", function () {
@@ -160,6 +161,7 @@ clearScoreButton.addEventListener("click", function () {
   scoreListEl.innerHTML = "";
   // was missing this before >> required to clear array
   players = [];
+  timeEl.innerText = 0;
 });
 // lets make a randomizer so the questions don't appear in the same order each time!!!
 
