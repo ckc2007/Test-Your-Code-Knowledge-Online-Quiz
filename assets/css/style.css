@@ -17,7 +17,7 @@
 body {
   padding: 20px;
 }
-
+/* display all content center */
 .intro,
 .quiz-container,
 .score-page,
@@ -25,7 +25,6 @@ body {
   padding: 20px;
   text-align: center;
 }
-
 /* .quiz-container {
   text-align: left;
 } */
@@ -34,12 +33,12 @@ h1 {
   margin-bottom: 20px;
   font-weight: bold;
 }
-
+/* keep the nav and timer hard left and right */
 .flex-space-between {
   display: flex;
   justify-content: space-between;
 }
-
+/* hide functionality */
 .hide {
   display: none;
 }
