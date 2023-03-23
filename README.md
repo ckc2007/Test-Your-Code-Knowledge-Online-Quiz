@@ -36,7 +36,7 @@ THEN I can save my initials and my score (best time)
 
 ```
 
-The following is a screenshot of the deployed page
+The above is a screenshot of the deployed page
 
 ```
 
