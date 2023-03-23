@@ -28,8 +28,16 @@ THEN I can save my initials and my score (best time)
 
 ## Deployed Page
 
+[https://ckc2007.github.io/hw-04-web-api-code-quiz-site/#leaderboard]
+
+![demo page](./assets/img/hw-04-01.png)
+
+![demo page](./assets/img/hw-04-02.png)
+
 ```
+
 The following is a screenshot of the deployed page
+
 ```
 
 ## Game Features

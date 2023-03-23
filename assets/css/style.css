@@ -38,6 +38,7 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+
 /* hide functionality */
 .hide {
   display: none;
