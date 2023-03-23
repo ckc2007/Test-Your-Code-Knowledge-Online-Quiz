@@ -44,6 +44,7 @@ The above is a screenshot of the deployed page
 
 ```
 The timer will deduct 10 seconds for a wrong answer
+You can see the leaderboard even if the quiz is in progress if you choose to click on the View High Scores link.
 ```
 
 ## Future Features
