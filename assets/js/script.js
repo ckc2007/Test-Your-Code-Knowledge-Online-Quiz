@@ -205,4 +205,53 @@ const questions = [
       { text: '22 + "22"', correct: false },
     ],
   },
+  // new questions here:
+  {
+    question:
+      "Which quotation marks MUST be used for a string with ${TEMPLATE LITERALS}?",
+    answers: [
+      { text: "single quotes: ''", correct: false },
+      { text: 'double quotes: ""', correct: false },
+      { text: "back ticks: ``", correct: true },
+      { text: "command + ?", correct: false },
+    ],
+  },
+  {
+    question:
+      'let str = "null". which of the following will throw an error in the console?',
+    answers: [
+      { text: "str.length;", correct: false },
+      { text: "str.length.length;", correct: false },
+      { text: "str.split('').length-1", correct: false },
+      { text: "null.length", correct: true },
+    ],
+  },
+  {
+    question:
+      "let arr = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,0,0]. let newSet = new Set(arr);  What is the size of newSet?",
+    answers: [
+      { text: "11", correct: false },
+      { text: "10", correct: true },
+      { text: "9", correct: false },
+      { text: "undefined", correct: false },
+    ],
+  },
+  {
+    question: "What will console.log(\"coconuts\".slice(4,7) return?",
+    answers: [
+      { text: "coco", correct: false },
+      { text: "onuts", correct: false },
+      { text: "nut", correct: true },
+      { text: "undefined", correct: false },
+    ],
+  },
+  {
+    question: "what will console.log(String(6).padStart(3,\"0\")); return?",
+    answers: [
+      { text: "666", correct: false },
+      { text: "000000", correct: false },
+      { text: "006", correct: true },
+      { text: "0006", correct: false },
+    ],
+  },
 ];
