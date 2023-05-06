@@ -1,62 +1,65 @@
-# Test Your Code Knowledge Online Quiz
+# "Test Your Code Knowledge" Online Quiz
 
-```
-a timed quiz on javascript fundamentals that has a leaderboard!
-```
+![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## User Story
+A timed quiz on JavaScript fundamentals.
 
-```
-AS A coding student
-I WANT to take a timed quiz that tests my knowledge on JavaScript Fundamentals
-SO THAT I can have a fun way of tracking my progress against myself and my peers.
-```
+## Description
 
-## Acceptance Criteria
+- Test your knowledge of JavaScript and compete against yourself or your friends to get the highest score!
+- The test questions are custom-designed to review tricky details. Some are easier than others - don't get fooled!
+- As a student of JavaScript, I want to be able to use this quiz as a virtual study session and gamified flashcard-style review.
+- By implementing a timer, you must get to the correct answer quickly. A wrong answer will penalize your time. The score is your best time.
+- This is not as easy as it seems...what will be your highest score?
 
-```
-GIVEN I am taking the coding quiz
-WHEN I click the start button
-THEN a timer starts a countdown and I am given the first question
-WHEN I answer this question by clicking on the answer buttons
-THEN I am taken to the next question
-WHEN all questions are completed, or the timer reaches 0
-THEN the game is complete
-WHEN the game is complete
-THEN I can save my initials and my score (best time)
-```
+## Table Of Contents
 
-## Deployed Page
+[Installation](#installation)
+[Usage](#usage)
+[License](#license)
 
-[https://ckc2007.github.io/hw-04-web-api-code-quiz-site/#leaderboard]
+## Installation
 
-![demo page](./assets/img/hw-04-01.png)
+from VS Code:
 
-![demo page](./assets/img/hw-04-02.png)
+- Please clone the repository
+- Run the index.html file in your live server
+- Or, visit the deployed page (link below)
 
-```
+## Usage
 
-The above is a screenshot of the deployed page
+- When you first open the app, you will be able to see any previously saved local leaderboard information.
+- You can start the timed quiz at anytime, view the leaderboard at any time, and will be shown a series of coding questions.
+- When the timer runs out, or you have answered all the questions, you will be taken to the leaderboard where you will be prompted to save your name.
+- You can see your highest scores and contine to practice by retaking the quiz.
+- Clear your scores at any time.
 
-```
+## Screenshot / Video
 
-## Game Features
+![screenshot](./assets/images/screenshot.png "an image of the deployed online coding quiz website")
 
-```
-The timer will deduct 10 seconds for a wrong answer
-You can see the leaderboard even if the quiz is in progress if you choose to click on the View High Scores link.
-```
+## Contributing
 
-## Future Features
+This project was built in collaboration with ,
+whose GitHub profile can be found [here]().
 
-```
-Other features that will be made available in the future may include:
-- An answer key
-- Dynamic coloring of the game field
-- Animations for button actions
-- A wider selection of questions
-- A choice of how many questions to include
-- A choice for easy, medium, hard
-- A choice for how long the timer will last
-- Badges for making a certain score
-```
+Third party assets used in this project include:
+
+Tutorials used in this project include:
+
+## License
+
+This project is licensed under the MIT license.
+
+## Features
+
+Additional quesions will be added soon. Dynamic color changes as the timer reaches zero will be added. Timer difficulty will be an option soon.
+
+## Tests
+
+## Questions
+
+Please direct questions to the owner of this repository at ckc2007@gmail.com
+
+Owner GitHub page:
+[ckc2007](https://github.com/ckc2007).
