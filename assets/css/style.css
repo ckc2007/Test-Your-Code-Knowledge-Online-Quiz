@@ -228,7 +228,7 @@ li {
 }
 
 #score-list li:nth-child(odd) {
-  background-color: grey;
+  background-color: rgb(186, 186, 186);
 }
 
 .score-item:hover {
