@@ -43,8 +43,7 @@ Deployed Site:
 ![screenshot](./assets/img/screenshot.png "an image of the deployed online coding quiz website")
 
 Score List:
-![screenshot](./assets/img/score_list_1.png "an image of the deployed online coding quiz website score list")
-![screenshot](./assets/img/scores_view.png "an image of the deployed online coding quiz website score hover effect")
+![screenshot](./assets/img/score_list_1.png "an image of the deployed online coding quiz website score list hover effect")
 ![screenshot](./assets/img/clear_scores.png "an image of the deployed online coding quiz website clear button hover effect")
 
 ## License
