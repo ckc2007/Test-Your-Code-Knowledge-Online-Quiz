@@ -210,9 +210,9 @@ const questions = [
     question:
       "Which quotation marks MUST be used for a string with ${TEMPLATE LITERALS}?",
     answers: [
-      { text: "single quotes: ''", correct: false },
-      { text: 'double quotes: ""', correct: false },
-      { text: "back ticks: ``", correct: true },
+      { text: "single quotes: ' '", correct: false },
+      { text: 'double quotes: " "', correct: false },
+      { text: "back ticks: ` `", correct: true },
       { text: "command + ?", correct: false },
     ],
   },
@@ -237,7 +237,7 @@ const questions = [
     ],
   },
   {
-    question: "What will console.log(\"coconuts\".slice(4,7) return?",
+    question: "What will console.log(\"coconuts\".slice(4,7)) return?",
     answers: [
       { text: "coco", correct: false },
       { text: "onuts", correct: false },
