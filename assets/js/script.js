@@ -202,7 +202,7 @@ const questions = [
       { text: "24", correct: false },
       { text: "the string 222", correct: true },
       { text: "the number 222", correct: false },
-      { text: '22 + "22"', correct: false },
+      { text: '22 + "2"', correct: false },
     ],
   },
   // new questions here:
