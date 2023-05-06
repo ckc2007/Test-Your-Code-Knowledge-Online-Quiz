@@ -38,24 +38,15 @@ from VS Code:
 
 ![screenshot](./assets/images/screenshot.png "an image of the deployed online coding quiz website")
 
-## Contributing
-
-This project was built in collaboration with ,
-whose GitHub profile can be found [here]().
-
-Third party assets used in this project include:
-
-Tutorials used in this project include:
-
 ## License
 
 This project is licensed under the MIT license.
 
 ## Features
 
-Additional quesions will be added soon. Dynamic color changes as the timer reaches zero will be added. Timer difficulty will be an option soon.
-
-## Tests
+- Additional quesions will be added soon.
+- Dynamic color changes as the timer reaches zero will be added.
+- Timer difficulty will be an option soon.
 
 ## Questions
 
