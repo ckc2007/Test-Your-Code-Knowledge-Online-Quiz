@@ -143,6 +143,7 @@ function renderListItems() {
     var player = players[i];
     var liEl = document.createElement("li");
     liEl.textContent = player.player + "'s - score: " + player.score;
+    liEl.classList.add("score-item");
     scoreListEl.appendChild(liEl);
   }
 }

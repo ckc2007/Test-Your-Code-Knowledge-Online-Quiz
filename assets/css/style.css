@@ -222,6 +222,7 @@ li {
   background-color: #fff;
   color: #1e90ff;
 }
+
 #score-list li:nth-child(even) {
   background-color: white;
 }
@@ -229,6 +230,13 @@ li {
 #score-list li:nth-child(odd) {
   background-color: grey;
 }
+
+.score-item:hover {
+  /* just learned about this syntax! helps override the previous nth child color */
+  background-color: aquamarine !important;
+  transform: scale(1.01);
+}
+
 #clear-scores {
   margin-left: 10px;
 }
