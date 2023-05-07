@@ -237,7 +237,8 @@ const questions = [
     ],
   },
   {
-    question: "What will console.log(\"coconuts\".slice(4,7)) return?",
+    // This question is created from an example console.log in Eloquent Javascript Third Edition by Marijn Haverbeke
+    question: 'What will console.log("coconuts".slice(4,7)) return?',
     answers: [
       { text: "coco", correct: false },
       { text: "onuts", correct: false },
@@ -246,7 +247,8 @@ const questions = [
     ],
   },
   {
-    question: "what will console.log(String(6).padStart(3,\"0\")); return?",
+    // This question is created from an example console.log in Eloquent Javascript Third Edition by Marijn Haverbeke
+    question: 'what will console.log(String(6).padStart(3,"0")); return?',
     answers: [
       { text: "666", correct: false },
       { text: "000000", correct: false },
